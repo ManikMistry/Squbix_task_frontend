@@ -1,12 +1,15 @@
-import './App.css'
+import Navigation from "./components/Navigation/Navigation";
+import HomePage from "./pages/HomePage/HomePage";
 
 function App() {
-
   return (
     <>
-    <div>hello</div>
+      <div>
+        <Navigation/>
+        <HomePage/>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
