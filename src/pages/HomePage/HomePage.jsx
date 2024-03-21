@@ -5,15 +5,14 @@ import Product from "../../components/Product/Product";
 function HomePage() {
   return (
     <>
-      <div>
+      <div className="top-16 relative">
         <MainCarousel />
       </div>
-      <div>
-      <Product/>
+
+      <div className=" relative top-28">
+        <Product />
       </div>
-      <div>
-        <Footer/>
-      </div>
+      <div>{/* <Footer/> */}</div>
     </>
   );
 }

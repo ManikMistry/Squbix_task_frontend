@@ -1,12 +1,25 @@
-import './ProdcutCard.css'
-// import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import './ProdcutCard.css';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
-function ProductCard({product}) {
-//   const navigate=useNavigate();
+function ProductCard({ product }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
   return (
     <>
-    {/* onClick={()=>navigate(`/product/${5}`)}  */}
-      <div className="productCard w-[15rem] m-3 transition-all cursor-pointer">
+      <div
+        className="productCard w-[15rem] m-3 transition-all cursor-pointer relative"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <div className="h-[20rem]">
           <img
             className="h-full w-full object-cover object-left-top"
@@ -22,9 +35,14 @@ function ProductCard({product}) {
           <div className="flex items-center space-x-2">
             <p className="font-semibold">{product.selling_price}</p>
             <p className="line-through opacity-50">{product.price}</p>
-            <p className="text-green-600 font-semibold">{product.disscount}</p>
+            <p className="text-green-600 font-semibold">{product.discount}</p>
           </div>
         </div>
+        {isHovered && (
+          <div className="absolute top-2 right-2 bg-gray-800 text-white rounded-sm p-1">
+            <ShoppingCartIcon/>
+          </div>
+        )}
       </div>
     </>
   );

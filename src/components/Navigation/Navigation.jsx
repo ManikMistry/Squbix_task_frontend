@@ -1,19 +1,27 @@
+import React, { useState } from "react";
 import { Avatar } from "@mui/material";
 import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
+import { motion, AnimatePresence } from "framer-motion";
+import Sidebar from "../SidebarMenu/Sidebar";
+import CloseIcon from '@mui/icons-material/Close';
+
 function Navigation() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
     <>
-      <div className="w-full bg-blue-400 h-8 text-white flex justify-center items-center">
-        <p className=" text-md">Get free delivery on orders over ₹999</p>
-      </div>
-      <nav className="flex justify-between items-center bg-white p-4 text-black">
+      <nav className="flex justify-between items-center bg-white p-2 text-black border-b w-full fixed top-0 z-50">
         <div className="flex items-center space-x-4 pl-6">
           {/* Logo */}
           <p className="text-xl font-bold cursor-pointer">MyShop</p>
           {/* Navigation Links */}
           <ul className="flex space-x-5">
             <li>
-              <p className=" cursor-pointer">Women</p>
+              <p className="cursor-pointer">Women</p>
             </li>
             <li>
               <p className="cursor-pointer">Men</p>
@@ -30,20 +38,57 @@ function Navigation() {
           <Avatar
             alt="Remy Sharp"
             src="/static/images/avatar/1.jpg"
-            className=" cursor-pointer"
+            className="cursor-pointer"
             sx={{ width: 35, height: 35 }}
           />
           {/* Cart Icon */}
-          <div className="relative cursor-pointer">
-            <p className=" bg-red-400 text-white rounded-xl flex justify-center relative top-0 left-2 z-10">
+          <div className="relative cursor-pointer" onClick={toggleSidebar}>
+            <p className="bg-red-400 text-white rounded-xl flex justify-center relative top-0 left-2 z-10">
               2
             </p>
-            <div className=" relative bottom-3">
+            <div className="relative bottom-3">
               <ShoppingCartSharpIcon />
             </div>
           </div>
         </div>
       </nav>
+      <AnimatePresence>
+        {isSidebarOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed inset-0 z-50"
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                delay: 0.1,
+              }}
+              className="absolute top-0 right-0 bg-white w-[40rem] h-full shadow-lg"
+            >
+              <div className="h-16 border-b">
+                <button
+                  onClick={toggleSidebar}
+                  className="px-4 py-4"
+                >
+                  <CloseIcon/>
+                </button>
+              </div>
+              {/* Sidebar content */}
+              <div>
+                <Sidebar />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
