@@ -2,6 +2,7 @@ import ProductCard from "./ProductCard.jsx";
 import { womens_kurta } from "../../data/womens_kurta.js";
 import Footer from "../Footer/Footer.jsx";
 import SortIcon from "@mui/icons-material/Sort";
+// import { Link } from "react-router-dom";
 
 export default function Product() {
   return (

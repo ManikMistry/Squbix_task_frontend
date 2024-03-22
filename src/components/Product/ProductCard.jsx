@@ -35,7 +35,7 @@ function ProductCard({ product }) {
           <div className="flex items-center space-x-2">
             <p className="font-semibold">{product.selling_price}</p>
             <p className="line-through opacity-50">{product.price}</p>
-            <p className="text-green-600 font-semibold">{product.discount}</p>
+            <p className="text-green-600 font-semibold">{product.disscount}</p>
           </div>
         </div>
         {isHovered && (
