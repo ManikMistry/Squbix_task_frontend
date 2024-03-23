@@ -8,9 +8,9 @@ export default function Product() {
   return (
     <>
       <div className=" h-16 border w-full px-4 flex justify-between items-center">
-        <h3>Recomended</h3>
+        <h3 className=" font-bold text-2xl text-gray-800">Recomended</h3>
       </div>
-      <div className="h-screen flex">
+      <div className="h-full flex">
         <div className="w-1/5 h-full">
           <div className="h-16 w-full relative border-b flex justify-between items-center px-4 ml-3">
             <p className="text-md font-bold">Filter</p>
@@ -19,7 +19,7 @@ export default function Product() {
             </div>
           </div>
           {/* FILTER PRODUCTS */}
-          <div className="p-4">
+          <div className="p-4 h-full">
             <div className="mb-4">
               <p className="font-semibold mb-2">Price</p>
               <div>

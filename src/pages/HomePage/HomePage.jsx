@@ -10,11 +10,11 @@ function HomePage() {
         <MainCarousel />
       </div>
 
-      <div className=" relative top-28">
-        {/* <Product /> */}
+      <div className="">
+        <Product />
         {/* <ProductDetails/> */}
       </div>
-      <div>{/* <Footer/> */}</div>
+      <div><Footer/></div>
     </>
   );
 }
