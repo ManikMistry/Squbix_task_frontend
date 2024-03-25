@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from "../../context/action";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Link } from "react-router-dom";
+import './ProdcutCard.css'
 
 function ProductCard({ product }) {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ function ProductCard({ product }) {
         <div className="flex items-center space-x-2">
           <p className="font-semibold">{product.selling_price}</p>
           <p className="line-through opacity-50">{product.price}</p>
-          <p className="text-green-600 font-semibold">{product.discount}</p>
+          <p className="text-green-600 font-semibold">{product.disscount}</p>
         </div>
       </div>
       <div className="absolute top-2 right-2 bg-gray-800 text-white rounded-sm p-1" onClick={handleAddToCart}>

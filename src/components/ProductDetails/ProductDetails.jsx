@@ -6,6 +6,7 @@
   import { addToCart } from "../../context/action";
 
   const ProductDetails = ({product}) => {
+    console.log(product)
     const dispatch=useDispatch()
 
     const handleAddToCart=()=>{
@@ -31,7 +32,7 @@
                   WOXEN
                 </h2>
                 <h1 className="text-white text-3xl title-font font-medium mb-1">
-                  The Catcher in the Rye
+                Women Kurta and Pant Set Art Silk
                 </h1>
                 <div className="flex mb-4">
                   <span className="flex items-center">
@@ -96,12 +97,12 @@
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <p className="line-through opacity-50">₹999</p>
-                  <p className="text-green-600 font-semibold">40%</p>
+                  <p className="line-through opacity-50">₹2,899</p>
+                  <p className="text-green-600 font-semibold">75%</p>
                 </div>
                 <div className="flex">
                   <span className="title-font font-medium text-2xl text-white">
-                    ₹558.00
+                    ₹699.00
                   </span>
                   <button className="flex ml-auto text-white bg-purple-500 border-0 py-2 px-6 focus:outline-none hover:bg-purple-600 rounded font-bold" onClick={handleAddToCart}>
                   Add to Cart

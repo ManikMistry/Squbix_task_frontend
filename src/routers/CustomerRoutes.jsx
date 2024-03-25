@@ -18,6 +18,7 @@ function CustomerRoutes() {
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/deliveryAddressForm" element={<DeliveryAddressForm/>}></Route>
         <Route path="/productDetails/:productId" element={<ProductDetails/>}></Route>
+        <Route path="/celebration" element={<Celebration/>}></Route>
         <Route path="/orderSummary" element={<OrderSummary/>}></Route>
       </Routes>
       <div>
