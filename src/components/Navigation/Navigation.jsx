@@ -4,6 +4,7 @@ import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
 import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "../SidebarMenu/Sidebar";
 import CloseIcon from '@mui/icons-material/Close';
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -17,7 +18,7 @@ function Navigation() {
       <nav className="flex justify-between items-center bg-white p-2 text-black border-b w-full fixed top-0 z-50">
         <div className="flex items-center space-x-4 pl-6">
           {/* Logo */}
-          <p className="text-xl font-bold cursor-pointer">MyShop</p>
+          <Link to='/' className="text-xl font-bold cursor-pointer">MyShop</Link>
           {/* Navigation Links */}
           <ul className="flex space-x-5">
             <li>

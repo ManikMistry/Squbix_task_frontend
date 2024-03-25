@@ -1,9 +1,13 @@
-import { useState } from 'react';
-import './ProdcutCard.css';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useState } from "react";
+import "./ProdcutCard.css";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../context/action";
 
 function ProductCard({ product }) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -12,6 +16,11 @@ function ProductCard({ product }) {
   const handleMouseLeave = () => {
     setIsHovered(false);
   };
+  const handleProductDetails = () => {
+    navigate("/productDetails");
+    useDispatch(addToCart(product));
+    console.log("the productCard function is called",product);
+  };
 
   return (
     <>
@@ -19,6 +28,7 @@ function ProductCard({ product }) {
         className="productCard w-[15rem] m-3 transition-all cursor-pointer relative"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onClick={handleProductDetails}
       >
         <div className="h-[20rem]">
           <img

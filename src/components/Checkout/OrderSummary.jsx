@@ -1,7 +1,6 @@
 import AddressCard from './AddressCard'
 import { Button, Divider } from '@mui/material'
 import Cart from '../Cart/Cart'
-// import CartItem from '../Cart/CartItem'
 
 function OrderSummary() {
   return (

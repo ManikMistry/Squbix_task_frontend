@@ -104,7 +104,7 @@ export default function Product() {
         <div className="w-4/5 h-full bg-gray-500">
           <div className="flex flex-wrap justify-center bg-white py-5">
             {womens_kurta.map((item) => (
-              <ProductCard product={item} />
+              <ProductCard product={item}/>
             ))}
           </div>
           {/* Content for the second div */}

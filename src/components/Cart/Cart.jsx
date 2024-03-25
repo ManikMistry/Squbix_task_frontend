@@ -1,5 +1,6 @@
 import DeleteIcon from '@mui/icons-material/Delete';
-function Cart() {
+function Cart({product}) {
+  console.log(product)
   let arr=[1,1,1,1]
   return (
     <>

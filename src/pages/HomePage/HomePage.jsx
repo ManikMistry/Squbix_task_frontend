@@ -12,9 +12,7 @@ function HomePage() {
 
       <div className="">
         <Product />
-        {/* <ProductDetails/> */}
       </div>
-      <div><Footer/></div>
     </>
   );
 }

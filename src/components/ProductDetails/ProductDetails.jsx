@@ -1,8 +1,14 @@
 import ProductReview from "./ProductReview";
 import { Grid, Rating, Box, LinearProgress } from "@mui/material";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
+import { useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
+  const navigate=useNavigate();
+
+  const handleOrderSummary=()=>{
+    navigate('deliveryAddressForm')
+  }
   return (
     <>
       <section className="text-gray-400 bg-gray-900 body-font overflow-hidden relative top-5">
