@@ -5,6 +5,7 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import DeliveryAddressForm from "../components/Checkout/DeliveryAddressForm";
 import OrderSummary from "../components/Checkout/OrderSummary";
 import { Route, Routes } from "react-router-dom";
+import Celebration from "../pages/HomePage/Celebration";
 OrderSummary;
 
 function CustomerRoutes() {
@@ -16,8 +17,7 @@ function CustomerRoutes() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route path="/deliveryAddressForm" element={<DeliveryAddressForm/>}></Route>
-        <Route path="/productDetails" element={<ProductDetails/>}></Route>
-        {/* <Route path="/productDetails/deliveryAddressForm" element={<DeliveryAddressForm/>}></Route> */}
+        <Route path="/productDetails/:productId" element={<ProductDetails/>}></Route>
         <Route path="/orderSummary" element={<OrderSummary/>}></Route>
       </Routes>
       <div>

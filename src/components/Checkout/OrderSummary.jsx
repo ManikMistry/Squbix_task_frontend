@@ -1,8 +1,26 @@
 import AddressCard from './AddressCard'
 import { Button, Divider } from '@mui/material'
 import Cart from '../Cart/Cart'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 function OrderSummary() {
+  const navigate=useNavigate();
+  const cartItems = useSelector(state => state.cart.cartItems); // Access cartItems from state.cart
+
+  const handleCheckOut = () => {
+    navigate('/celebration');
+  };
+
+  
+  const basketCount = cartItems.length;
+  const subtotal = cartItems.reduce((total, item) => {
+    const price = parseFloat(item.selling_price?.replace(/[^\d.]/g, ''));
+    console.log("Price:", price); // Debugging
+    return isNaN(price) ? total : total + price;
+  }, 0);
+  
+  console.log("Subtotal:", subtotal); 
   return (
     <div className=' relative top-20 p-10'>
         <div className='p-5 shadow-lg rounded-md border'>
@@ -22,12 +40,12 @@ function OrderSummary() {
               <div className="space-y-3 font-semibold mb-10">
                 <div className=" flex justify-between pt-3 text-black">
                   <span>Price</span>
-                  <span>₹2099</span>
+                  <span>₹{subtotal.toFixed(2)}</span>
                 </div>
-                <div className=" flex justify-between pt-3">
+                {/* <div className=" flex justify-between pt-3">
                   <span>Discount</span>
                   <span className="text-green-600">-₹499</span>
-                </div>
+                </div> */}
                 <div className=" flex justify-between pt-3">
                   <span>Delivery charge</span>
                   <span className="text-green-600">Free</span>
@@ -35,10 +53,11 @@ function OrderSummary() {
                 <Divider />
                 <div className=" flex justify-between pt-3 font-bold ">
                   <span>Total amount</span>
-                  <span className="text-green-600 font-bold">₹1599</span>
+                  <span className="text-green-600 font-bold">₹{subtotal.toFixed(2)}</span>
                 </div>
               </div>
             <Button
+            onClick={handleCheckOut}
               color="secondary"
               variant="contained"
               className=" w-full"

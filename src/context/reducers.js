@@ -1,40 +1,48 @@
-const initialState = {
-  addressData: {
-    firstName: "",
-    lastName: "",
-    streetAddress: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    mobile: "",
-    cartItems: [],
-  },
+// reducers.js
+
+const addressInitialState = {
+  firstName: "",
+  lastName: "",
+  streetAddress: "",
+  city: "",
+  state: "",
+  zipCode: "",
+  mobile: "",
 };
 
-export const addressReducer = (state = initialState, action) => {
+const cartInitialState = {
+  cartItems: [],
+};
+
+export const addressReducer = (state = addressInitialState, action) => {
   switch (action.type) {
     case "UPDATE_ADDRESS":
       return {
         ...state,
-        addressData: action.payload,
+        ...action.payload,
       };
+    case "CLEAR_ADDRESS":
+      return addressInitialState;
     default:
       return state;
   }
 };
 
-export const cartReducer = (state = initialState, action) => {
-    switch (action.type) {
-      case "ADD_TO_CART":
-        return {
-          ...state,
-          addressData: {
-            ...state.addressData,
-            cartItems: [...state.addressData.cartItems, action.payload],
-          },
-        };
-      default:
-        return state;
-    }
-  };
-  
+export const cartReducer = (state = cartInitialState, action) => {
+  switch (action.type) {
+    case "ADD_TO_CART":
+      return {
+        ...state,
+        cartItems: [...state.cartItems, action.payload],
+      };
+    case "REMOVE_FROM_CART":
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item, index) => index !== action.payload
+        ),
+      };
+    default:
+      return state;
+  }
+};

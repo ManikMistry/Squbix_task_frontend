@@ -5,14 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import Sidebar from "../SidebarMenu/Sidebar";
 import CloseIcon from '@mui/icons-material/Close';
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Navigation() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const cartItems=useSelector(state=>state.cart.cartItems)
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
-
   return (
     <>
       <nav className="flex justify-between items-center bg-white p-2 text-black border-b w-full fixed top-0 z-50">
@@ -45,7 +46,7 @@ function Navigation() {
           {/* Cart Icon */}
           <div className="relative cursor-pointer" onClick={toggleSidebar}>
             <p className="bg-red-400 text-white rounded-xl flex justify-center relative top-0 left-2 z-10">
-              2
+              {cartItems.length}
             </p>
             <div className="relative bottom-3">
               <ShoppingCartSharpIcon />

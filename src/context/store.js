@@ -1,11 +1,11 @@
-import { createStore,  combineReducers } from 'redux';
-import {addressReducer} from './reducers';
+import { createStore, combineReducers } from 'redux';
 import { cartReducer } from './reducers';
+import { addressReducer } from './reducers';
 
-const rootReducer=combineReducers({
-    address: addressReducer,
-    cart:cartReducer
-})
+const rootReducer = combineReducers({
+  cart: cartReducer,
+  address: addressReducer
+});
 
 const store = createStore(rootReducer);
 

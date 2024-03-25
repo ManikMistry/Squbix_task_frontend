@@ -1,10 +1,8 @@
 import ProductCard from "./ProductCard.jsx";
 import { womens_kurta } from "../../data/womens_kurta.js";
-import Footer from "../Footer/Footer.jsx";
 import SortIcon from "@mui/icons-material/Sort";
-// import { Link } from "react-router-dom";
 
-export default function Product() {
+export default function Product({products}) {
   return (
     <>
       <div className=" h-16 border w-full px-4 flex justify-between items-center">
@@ -23,7 +21,7 @@ export default function Product() {
             <div className="mb-4">
               <p className="font-semibold mb-2">Price</p>
               <div>
-                <input type="radio" id="price-all" name="price" value="all" />
+                <input type="radio" id="price-all" name="price" value="all"/>
                 <label htmlFor="price-all">All</label>
               </div>
               <div>
@@ -103,8 +101,8 @@ export default function Product() {
         </div>
         <div className="w-4/5 h-full bg-gray-500">
           <div className="flex flex-wrap justify-center bg-white py-5">
-            {womens_kurta.map((item) => (
-              <ProductCard product={item}/>
+            {womens_kurta.map((item,index) => (
+              <ProductCard key={index} product={item}/>
             ))}
           </div>
           {/* Content for the second div */}

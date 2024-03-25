@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateAddress } from "../../context/action.js";
+import { clearAddress, updateAddress } from "../../context/action.js";
 import { Box, Button, Grid, TextField } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
 import AddressCard from "./AddressCard.jsx";
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +13,7 @@ function DeliveryAddressForm() {
   const formRef = useRef(null);
 
   const handleDeliverHereClick = () => {
-    navigate('/orderSummary');
+    navigate("/orderSummary");
   };
 
   const handleSubmit = (e) => {
@@ -31,6 +32,11 @@ function DeliveryAddressForm() {
     formRef.current.reset();
   };
 
+  const clearData=()=>{
+    console.log("clear data called")
+    dispatch(clearAddress());
+  }
+
   return (
     <div className="relative top-32 px-20 mb-[10rem]">
       <Grid container spacing={4}>
@@ -39,16 +45,23 @@ function DeliveryAddressForm() {
           lg={5}
           className="border rounded-e-md shadow-md h-[30.5rem overflow-y-scroll]"
         >
-          <div className="p-5 py-7 border-b cursor-pointer">
+          <div className="p-5 py-7 border-b">
             <AddressCard />
-            <Button
-              sx={{ mt: 2, bgcolor: "RGB(145 85 253)" }}
-              size="large"
-              variant="contained"
-              onClick={handleDeliverHereClick} 
-            >
-              Deliver Here
-            </Button>
+            <div className="flex justify-between">
+              <div>
+                <Button
+                  sx={{ mt: 2, bgcolor: "RGB(145 85 253)" }}
+                  size="large"
+                  variant="contained"
+                  onClick={handleDeliverHereClick}
+                >
+                  Deliver Here
+                </Button>
+              </div>
+              <div className="mt-5 cursor-pointer" onClick={clearData}>
+                <DeleteIcon sx={{ marginTop:'10px' }} />
+              </div>
+            </div>
           </div>
         </Grid>
         <Grid item xs={12} lg={7}>
